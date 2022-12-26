@@ -1,0 +1,27 @@
+<h1>Books</h1>
+<div class="thread">
+ <h3>Title</h3>
+ <h3>Body</h3>
+</div>
+<% @books.each do |list| %>
+<div class= "tbody">
+  <span class="list-title"><%= list.title %></span>
+  <span class="list-body"><%= list.body %></span>
+</div>
+
+<div class= "link">
+ <%= link_to "Show", list_path(list.id) %>
+ <%= link_to "Edit", list_path(list.id) %>
+ <%= link_to "Destroy", "/lists/#{list.id}", method: :delete, "data-confirm" => "*DELETE* Are you sure?" %>
+</div>
+<% end %>
+
+<h2>New book</h2>
+<%= form_with model: @book, url: '/lists',method: :post do |f| %>
+<h4>title</h4>
+<%= f.text_field :title %>
+
+<h4>body</h4>
+<%= f.text_area :body %>
+ <%= f.submit 'Create Book' %>
+<% end %>
