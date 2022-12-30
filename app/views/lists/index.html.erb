@@ -1,19 +1,28 @@
 <h1>Books</h1>
 <div class="thread">
- <h3>Title</h3>
- <h3>Body</h3>
+ <div class=tb1>
+  <h3>Title</h3>
+ </div>
+ <div class=tb2>
+  <h3>Body</h3>
+ </div>
 </div>
-<% @books.each do |list| %>
+
+<% @book.each do |list| %>
 <div class= "tbody">
   <span class="list-title"><%= list.title %></span>
   <span class="list-body"><%= list.body %></span>
 </div>
+<% end %>
 
-<div class= "link">
- <%= link_to "Show", list_path(list.id) %>
- <%= link_to "Edit", list_path(list.id) %>
- <%= link_to "Destroy", "/lists/#{list.id}", method: :delete, "data-confirm" => "*DELETE* Are you sure?" %>
-</div>
+<% @book.each do |list| %>
+<nav>
+　<ul class= "link">
+　 <li><%= link_to "Show", list_path(list.id) %></li>
+　 <li><%= link_to "Edit", list_path(list.id) %></li>
+　 <li><%= link_to "Destroy", "/lists/#{list.id}", method: :delete, "data-confirm" => "*DELETE* Are you sure?" %></li>
+　</ul>
+</nav>
 <% end %>
 
 <h2>New book</h2>

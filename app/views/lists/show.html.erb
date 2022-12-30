@@ -3,7 +3,7 @@
 <h2>Body</h2>
  <p><%= @book.body %></p>
 
-<% @books each do |list| %>
+<% @books.each do |list| %>
 
 <div class="choose">
  <span class="list-edit"><%= link_to "Edit", list_path(list.id) %></span>

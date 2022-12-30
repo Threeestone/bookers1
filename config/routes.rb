@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'lists' => 'lists#index'
   get 'lists/:id' => 'lists#show', as: 'list'
   get 'lists/:id' => 'lists#edit'
+  delete 'lists/:id' => 'lists#destroy', as: 'destroy_list'
 end

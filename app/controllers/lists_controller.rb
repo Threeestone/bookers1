@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @book = Book.all
   end
 
   def create
@@ -21,7 +21,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    book = book.find(params[:id])
+    book = Book.find(params[:id])
     book.destroy
     redirect_to '/lists'
   end
