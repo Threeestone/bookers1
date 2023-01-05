@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'lists/new'
+  get 'books/new'
   get 'top' => 'homes#top'
-  post 'lists' => 'lists#create'
-  get 'lists' => 'lists#index'
-  get 'lists/:id' => 'lists#show', as: 'list'
-  get 'lists/:id' => 'lists#edit'
-  delete 'lists/:id' => 'lists#destroy', as: 'destroy_list'
+  post 'books' => 'books#create'
+  get 'books' => 'books#index'
+  get 'books/:id' => 'books#show', as: 'book'
+  get 'books/:id' => 'books#edit'
+  delete 'books/:id' => 'books#destroy', as: 'destroy_book'
 end

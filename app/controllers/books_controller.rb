@@ -1,5 +1,6 @@
-class ListsController < ApplicationController
+class BooksController < ApplicationController
   def new
+    @title = Bookers
   end
 
   def index
@@ -7,9 +8,9 @@ class ListsController < ApplicationController
   end
 
   def create
-    @book = Book.new(list_params)
+    @book = Book.new(book_params)
     @book.save
-    redirect_to '/lists'
+    redirect_to '/books'
   end
 
   def show
@@ -23,11 +24,11 @@ class ListsController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to '/lists'
+    redirect_to '/books'
   end
 
   private
-  def list_params
+  def book_params
     params.require(:book).permit(:title, :body)
   end
 end

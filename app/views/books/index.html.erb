@@ -1,0 +1,48 @@
+<html>
+<body>
+ <p id="notice"></p>
+ <h1>Books</h1>
+ <table>
+  <thead>
+   <tr>
+    <th>Title</th>
+    <th>Body</th
+    <th colspan="3"></th>
+   </tr>
+  </thead>
+
+  <tbody>
+   <% @book.each do |book| %>
+    <tr>
+     <td><%= book.title %></td>
+     <td><%= book.body %></td>
+
+   　 <td><%= link_to "Show",book_path(book.id) %></td>
+　   <td><%= link_to "Edit", book_path(book.id) %></td>
+　   <td><%= link_to "Destroy", "/books/#{book.id}", method: :delete, "data-confirm" => "*DELETE* Are you sure?" %></td>
+　  </tr>
+   <% end %>
+  </tbody>
+ </table>
+
+ <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="authenticity_token" value="7eLycSNOF+6S2N1pM8hwFRzTkfpx0/KFT45DGxDe6/EdxCPSlwH+Dpt6h9kQdxMvIrnHaUV3y0TsP7fY2ruzHQ==">
+
+  <div class="field">
+   <label for="book_title">Title</label>
+   <imput class="book_title" type="text" name="book[title]" id="book_title">
+  </div>
+
+  <div class="field">
+   <label for="book_body">Body</label>
+   <textarea class="book_body" name="book[body]" id="book_body"></textarea>
+  </div>
+
+  <div class="actions">
+   <imput type="sunmit" name="commit" value="Create Book" data-disable-with="Create Book">
+  </div>
+ <h2>New book</h2>
+ </form>
+</body>
+</html>
