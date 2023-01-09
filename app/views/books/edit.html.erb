@@ -1,18 +1,31 @@
 <h1>Editing Book</h1>
 
-<%= form_with model: @book do |t| %>
+<%= form_with model: @book, method: :post do |t| %>
 
-<h4>Title</h4>
-<%= t.text_field :title %>
-
-<h4>Body</h4>
-<%= t.text_area :body %>
-
-<% t.submit 'Update Book' %>
-
-<div class="choose2">
- <%= link_to "Show", list_path(@book.id) %>
- <a href="index.html">Back</a>
+<div class='title'>
+ <h4>Title</h4>
+  <%= t.text_field :title %>
+</div>
+<div class="body">
+ <h4>Body</h4>
+  <%= t.text_area :body %>
+</div>
+<div class="submit">
+  <%= t.submit 'Update Book' %>
 </div>
 
+<div class="choose2">
+ <%= link_to "Show", book_path(@book.id) %>
+ |
+ <%= link_to "Back", books_path %>
+</div>
 <% end %>
+
+<%if @book.errors.any? %>
+  <%= @book.errors.count %> :updated error.
+   <ul>
+    <%@book.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+   </ul>
+  <% end %>
