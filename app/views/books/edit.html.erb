@@ -1,6 +1,6 @@
 <h1>Editing Book</h1>
 
-<%= form_with model: @book, method: :post do |t| %>
+<%= form_with model: @book do |t| %>
 
 <div class='title'>
  <h4>Title</h4>
@@ -13,13 +13,14 @@
 <div class="submit">
   <%= t.submit 'Update Book' %>
 </div>
+<% end %>
 
 <div class="choose2">
  <%= link_to "Show", book_path(@book.id) %>
  |
  <%= link_to "Back", books_path %>
 </div>
-<% end %>
+
 
 <%if @book.errors.any? %>
   <%= @book.errors.count %> :updated error.
